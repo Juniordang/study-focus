@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: "Crimson Pro", serif;
+    --font-body: "Outfit", sans-serif;
+
+    --background: 240 25% 98%;
+    --foreground: 245 40% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 245 40% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 245 40% 20%;
+
+    --primary: 245 64% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 20% 95%;
+    --secondary-foreground: 245 40% 20%;
+
+    --muted: 240 15% 92%;
+    --muted-foreground: 245 30% 45%;
+
+    --accent: 245 64% 51%;
+    --accent-foreground: 245 40% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 88%;
+    --input: 34 18% 88%;
+    --ring: 245 64% 51%;
+
+    --radius: 1rem;
+
+    --brand-50: 243 100% 98%;
+    --brand-100: 243 95% 94%;
+    --brand-200: 244 91% 88%;
+    --brand-600: 245 64% 51%;
+
+    --surface-50: 240 10% 98%;
+    --surface-100: 240 10% 95%;
+    --surface-200: 240 5% 88%;
+
+    --clay-100: 0 100% 95%;
+    --clay-600: 0 72% 60%;
+
+    --ochre-100: 45 100% 90%;
+    --ochre-600: 45 93% 47%;
+
+    --sidebar-background: 240 25% 98%;
+    --sidebar-foreground: 245 40% 20%;
+    --sidebar-primary: 245 64% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 243 95% 94%;
+    --sidebar-accent-foreground: 245 64% 51%;
+    --sidebar-border: 240 15% 90%;
+    --sidebar-ring: 245 64% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-brand-100 selection:text-brand-600;
+    font-family: var(--font-body);
+    background-image:
+      radial-gradient(at 0% 0%, hsla(245, 64%, 51%, 0.05) 0px, transparent 50%),
+      radial-gradient(
+        at 100% 0%,
+        hsla(210, 100%, 50%, 0.05) 0px,
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .soft-shadow {
+    box-shadow:
+      0 10px 40px -10px rgba(99, 102, 241, 0.1),
+      0 5px 15px -5px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-blue-500;
+  }
+
+  .print-only {
+    display: none;
+  }
+
+  .performance-print-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .performance-print-table th,
+  .performance-print-table td {
+    border: 1px solid #cbd5e1;
+    padding: 8px 10px;
+    text-align: left;
+  }
+
+  .performance-print-table th {
+    background: #f1f5f9;
+    font-weight: 600;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1.2cm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .performance-report,
+  .performance-report * {
+    visibility: visible;
+  }
+
+  .performance-report {
+    position: absolute;
+    inset: 0 auto auto 0;
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    color: #111827 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .performance-report .soft-shadow {
+    box-shadow: none !important;
+  }
+
+  .performance-report > div,
+  .performance-report h1,
+  .performance-report h2,
+  .performance-report h3 {
+    break-inside: avoid;
+  }
+
+  .performance-summary-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .performance-charts-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .performance-report .rounded-2xl {
+    border-radius: 8px !important;
+  }
+}

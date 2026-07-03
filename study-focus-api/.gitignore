@@ -1,0 +1,53 @@
+# Executáveis e Binários Compilados
+# --------------------------------
+# Ignora arquivos binários locais que você gera ao rodar 'go build'
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.prof
+
+# Se você costuma dar o nome da pasta ao seu binário principal, 
+# adicione o nome dele aqui embaixo (ex: /meu-app)
+/bin/
+
+# Gerado por ferramentas de cobertura de código (Testing)
+# -----------------------------------------------------
+*.out
+*.cover
+coverage.txt
+
+# Dependências (Vendor)
+# ---------------------
+# Descomente a linha abaixo APENAS se você NÃO quer commitar a pasta vendor.
+# Por padrão, se você usa Go Modules, a pasta vendor/ não é estritamente necessária no Git.
+# /vendor/
+
+# Arquivos de Configuração Local e Variáveis de Ambiente
+# -----------------------------------------------------
+.env
+.env.local
+.env.*.local
+
+# IDEs e Editores de Texto
+# ------------------------
+# JetBrains (GoLand, IntelliJ, etc.)
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+
+# Arquivos temporários do sistema
+# ------------------------------
+.DS_Store
+Thumbs.db
+
+.agents/
+.codex/
+
+main.db
+
